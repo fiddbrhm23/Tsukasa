@@ -641,11 +641,18 @@ if (text.includes("!alay")){
 	
 
 	
-if (text.includes("!nulis")){
-  const teks = text.replace(/!nulis /, "")
-axios.get(`https://st4rz.herokuapp.com/api/nulis?text=${teks}`).then((res) => {
-    let hasil = `Download sendiri ya hasilnya dibawah, soalnya kalo dikirim langsung hasilnya blur\n\n${res.data.result.data}`;
-    conn.sendMessage(id, hasil ,MessageType.text);
+if (text.includes('!nulis')){
+  var teks = text.replace(/!nulis /, '')
+    axios.get(`https://st4rz.herokuapp.com/api/nulis?text=${teks}`)
+    .then((res) => {
+      imageToBase64(res.data.result)
+        .then(
+          (ress) => {
+            conn.sendMessage(id, '[WAIT] Searching...❗', MessageType.text)
+            var buf = Buffer.from(ress, 'base64')
+            conn.sendMessage(id, buf, MessageType.image)
+        })
+    })
 })
 }
 	
@@ -755,73 +762,40 @@ axios.get(`https://alfians-api.herokuapp.com/api/ytv?url=${teks}`).then((res) =>
 
 	
 
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
+   /*if (text.includes("#nulis"))
+   {
+      const
+      {
+         spawn
+      } = require("child_process");
+      console.log("writing...")
+      const teks = text.replace(/#nulis/, "")
+      const split = teks.replace(/(\S+\s*){1,10}/g, "$&\n")
+      const fixedHeight = split.split("\n").slice(0, 25).join("\\n")
+      console.log(split)
+      spawn("convert", [
+            "./assets/paper.jpg",
+            "-font",
+            "Indie-Flower",
+            "-size",
+            "700x960",
+            "-pointsize",
+            "18",
+            "-interline-spacing",
+            "3",
+            "-annotate",
+            "+170+222",
+            fixedHeight,
+            "./assets/result.jpg"
+         ])
+         .on("error", () => console.log("error"))
+         .on("exit", () =>
+         {
+            const buffer = fs.readFileSync("assets/result.jpg") // can send mp3, mp4, & ogg -- but for mp3 files the mimetype must be set to ogg
+            conn.sendMessage(id, buffer, MessageType.image)
+            console.log("done")
+         })
+   }
 
 	
 
