@@ -643,7 +643,7 @@ if (text.includes("!alay")){
 	
 if (text.includes('!nulis')){
   var teks = text.replace(/!nulis /, '')
-    axios.get(`https://st4rz.herokuapp.com/api/nulis?text=${teks}`)
+    axios.get('https://bangandre.herokuapp.com/nulis?teks='+teks)
     .then((res) => {
       imageToBase64(res.data.result)
         .then(
@@ -653,7 +653,6 @@ if (text.includes('!nulis')){
             conn.sendMessage(id, buf, MessageType.image)
         })
     })
-})
 }
 	
 if (text.includes("!namaninja")){
@@ -758,6 +757,87 @@ axios.get(`https://alfians-api.herokuapp.com/api/ytv?url=${teks}`).then((res) =>
     conn.sendMessage(id, hasil ,MessageType.text);
 })
 }
+	
+	if (text.includes("#waifu"))
+   {
+    var items = ["waifu","anime waifu"];
+    var anim = items[Math.floor(Math.random() * items.length)];
+    var url = "https://api.haipbis.xyz/waifu";
+    
+    axios.get(url)
+      .then((result) => {
+        var b = JSON.parse(JSON.stringify(result.data));
+        var anim =  b[Math.floor(Math.random() * b.length)];
+        imageToBase64(anim) // Path to the image
+        .then(
+            (response) => {
+	var buf = Buffer.from(response, 'base64'); // Ta-da	
+              conn.sendMessage(
+            id,
+              buf,MessageType.image)
+       
+            }
+        )
+        .catch(
+            (error) => {
+                console.log(error); // Logs an error if there was one
+            }
+        )
+    
+    });
+    }
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+		
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
 	
 
 	
