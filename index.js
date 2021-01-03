@@ -653,6 +653,7 @@ if (text.includes('!nulis')){
             conn.sendMessage(id, buf, MessageType.image)
         })
     })
+})
 }
 	
 if (text.includes("!namaninja")){
