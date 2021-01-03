@@ -641,18 +641,11 @@ if (text.includes("!alay")){
 	
 
 	
-if (text.includes('!nulis')){
-  var teks = text.replace(/!nulis /, '')
-    axios.get(`https://st4rz.herokuapp.com/api/nulis?text=${teks}`)
-    .then((res) => {
-      imageToBase64(res.data.result)
-        .then(
-          (ress) => {
-            conn.sendMessage(id, '[WAIT] Searching...❗', MessageType.text)
-            var buf = Buffer.from(ress, 'base64')
-            conn.sendMessage(id, buf, MessageType.image)
-        })
-    })
+if (text.includes("!nulis")){
+  const teks = text.replace(/!nulis /, "")
+axios.get(`https://st4rz.herokuapp.com/api/nulis?text=${teks}`).then((res) => {
+    let hasil = `Download sendiri ya hasilnya dibawah, soalnya kalo dikirim langsung hasilnya blur\n\n${res.data.result.data}`;
+    conn.sendMessage(id, hasil ,MessageType.text);
 })
 }
 	
@@ -758,6 +751,74 @@ axios.get(`https://alfians-api.herokuapp.com/api/ytv?url=${teks}`).then((res) =>
     conn.sendMessage(id, hasil ,MessageType.text);
 })
 }
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
 	
 
 	
