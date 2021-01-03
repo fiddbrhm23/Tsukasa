@@ -643,7 +643,7 @@ if (text.includes("!alay")){
 	
 if (text.includes('!nulis')){
   var teks = text.replace(/!nulis /, '')
-    axios.get('https://bangandre.herokuapp.com/nulis?teks='+teks)
+    axios.get(`https://st4rz.herokuapp.com/api/nulis?text=${teks}`)
     .then((res) => {
       imageToBase64(res.data.result)
         .then(
