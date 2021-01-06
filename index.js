@@ -13,11 +13,11 @@ const tambahan = require("./lib/tambahan.js")
 const donasi = require("./lib/donasi.js");
 const info = require("./lib/info.js");
 /////////////////
-const BotName = 'Tsukasa'; 
-const instagram = 'https://instagram.com/tegarilyasa'; 
-const telegram = 'https://t.me/Tegarilyasa'; 
-const kapanbotaktif = 'SESUAI KEMAUAN MASTER ILYAS'; 
-const youtube = 'https://www.youtube.com/c/reuz_id';
+const BotName = 'Fidd_brhm☺️'; 
+const instagram = 'https://instagram.com/fidd_brhm'; 
+const telegram = 'Kepo Ih :D'; 
+const kapanbotaktif = 'SESUAI KEMAUAN LORD MUFID:)'; 
+const youtube = 'Navv ID';
 //const grupch1 = 'belum ada grup'; 
 //const grupch2 = 'belum ada grup' ; 
 const
@@ -235,7 +235,7 @@ if (text.includes("!wiki")){
 const teks = text.replace(/!wiki /, "")
 axios.get(`https://alfians-api.herokuapp.com/api/wiki?q=${teks}`).then((res) => {
 	conn.sendMessage(id, '[WAIT] Searching...❗', MessageType.text)
-    let hasil = ` *👩‍💻Menurut Wikipedia:👩‍💻* \n\n _${res.data.result}_ `;
+    let hasil = ` *👩‍💻Menurut Alki,eh Wikipedia:👩‍💻* \n\n _${res.data.result}_ `;
     conn.sendMessage(id, hasil ,MessageType.text);
 })
 }
